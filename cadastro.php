@@ -2,14 +2,11 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
- <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
- 
- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.pt-BR.min.js"></script>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css"/> 
- 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.pt-BR.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css"/>  
   <title>Cadastro de Usuario</title>
 </head>
 
@@ -18,11 +15,9 @@
     <div class="container jumbotron w-25">
         <h1 class="display-4">Cadastre-se</h1>
         <hr class="my-4">
-        <form action="valida_login.php" method="POST" onSubmit="return valida_campos()">
-
+        <form action="valida_cadastro.php" method="POST" onSubmit="return valida_campos()">
             <div class="form-group">
                 <label for="inputAddress">Seu e-mail</label>
-
                 <input type="email" name="email" class="form-control" id="email" placeholder="Seu e-mail">
             </div>
             <div class="form-row">
@@ -35,32 +30,20 @@
                     <input type="password" name="senha" class="form-control" id="senha_confirmacao" placeholder="Confirme a senha">
                 </div>
             </div>
-
             <div class="form-group">
                 <label for="inputAddress2">Seu Nome</label>
                 <input type="text" name="nome" class="form-control" id="nome" placeholder="Digite seu nome">
             </div>
-          
-
-
-
-
-       
-
                      <div class="form-group"> 
                          <label class="control-label" for="date">Data de Nascimento</label>
-                        <input class="form-control" startDate="01/11/2019"  id="date" name="date" placeholder="DD/MM/YYY" type="text"/>
+                        <input class="form-control" startDate="01/11/2019"  id="date" name="date" placeholder="DD/MM/YYYY" type="text"/>
                     </div>
-            
-
-          
             <div class="form-group">
                 <label for="inputSexo">Sexo</label>
-                <select class="form-control" id="inputSexo">
-                    <option>Masculino</option>
-                    <option>Feminino</option>
+                <select class="form-control" name="sexo" id="inputSexo">
+                    <option>masculino</option>
+                    <option>feminino</option>
                 </select>
-
             </div>
             <div class="row mx-n2">
                 <div class="col-md px-2">
@@ -87,8 +70,6 @@
       date_input.datepicker(options);
     })
     $("#StartDate").data("startdate")
-
-
 function valida_campos(){
     if(document.getElementById('email').value == '')
     {alert('Preencha com seu e-mail.')
@@ -100,6 +81,13 @@ function valida_campos(){
     {alert('As senhas precisam ser iguais!!!')
     
     document.getElementById('senha').focus()
+    return false
+    }
+
+    if(document.getElementById('nome').value == '')
+    {alert('Preencha o seu nome.')
+    
+    document.getElementById('nome').focus()
     return false
     }
 }

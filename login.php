@@ -11,7 +11,7 @@
     <div class="container jumbotron w-25">
         <h1 class="display-4">Logar-se</h1>
         <hr class="my-4">
-        <form action="validalogin.php" method="POST" id="form">
+        <form action="valida_login.php" method="POST" id="form">
 
             <div class="form-group">
                 <label for="inputAddress">Seu e-mail</label>
